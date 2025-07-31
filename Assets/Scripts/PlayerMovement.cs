@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
             moveDirection += cameraTransform.right;
         }
 
+        moveDirection.y = 0f;
         moveDirection.Normalize();
 
         // Apply movement using Rigidbody physics
