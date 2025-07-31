@@ -12,6 +12,7 @@ public class RoomGeneratorEditor : Editor
     SerializedProperty foundationSize;
     SerializedProperty wallSize; // now Vector2
     SerializedProperty tileOffset;
+    SerializedProperty wallOffset;
     SerializedProperty doorPos;
     SerializedProperty floorCount;
     SerializedProperty makeFloor;
@@ -41,6 +42,7 @@ public class RoomGeneratorEditor : Editor
         foundationSize = serializedObject.FindProperty("foundationSize");
         wallSize = serializedObject.FindProperty("wallSize"); // Vector2
         tileOffset = serializedObject.FindProperty("tileOffset");
+        wallOffset = serializedObject.FindProperty("wallOffset");
         doorPos = serializedObject.FindProperty("doorPos");
         floorCount = serializedObject.FindProperty("floorCount");
         makeFloor = serializedObject.FindProperty("makeFloor");
@@ -76,6 +78,7 @@ public class RoomGeneratorEditor : Editor
             EditorGUILayout.PropertyField(foundationSize);
             EditorGUILayout.PropertyField(wallSize); // Vector2 field
             EditorGUILayout.PropertyField(tileOffset);
+            EditorGUILayout.PropertyField(wallOffset);
             EditorGUILayout.PropertyField(doorPos);
             EditorGUILayout.PropertyField(floorCount);
             EditorGUILayout.PropertyField(makeFloor);

@@ -12,6 +12,7 @@ public class RoomGenerator : MonoBehaviour
     [SerializeField] float foundationSize = 2f;
     [SerializeField] Vector2 wallSize = new Vector2(1f, 1f); // X = width, Y = height
     [SerializeField] Vector2 tileOffset;
+    [SerializeField] Vector2 wallOffset;
     [SerializeField] Vector2Int doorPos;
     [SerializeField] int floorCount = 1;
 
@@ -121,14 +122,11 @@ public class RoomGenerator : MonoBehaviour
 
             Vector3 localPos = new Vector3(0, heightOffset, 0);
             Vector3 pos = transform.TransformPoint(localPos);
-            Quaternion rot = transform.rotation;
-            GameObject first = GetRandomPrefab(firstWalls);
-            if (first != null)
-                Instantiate(first, pos, rot, wallsParent);
+            Quaternion rot = transform.rotation * Quaternion.Euler(0, -180, 0);
 
-            for (int i = 1; i < halfX; i++)
+            for (int i = 0; i < halfX; i++)
             {
-                localPos = new Vector3(i * wallSize.x, heightOffset, 0);
+                localPos = new Vector3(i * wallSize.x + wallOffset.x, heightOffset, 0);
                 pos = transform.TransformPoint(localPos);
                 GameObject prefab = (doorPos.x != 0 && j == 0 && i == doorPos.x)
                     ? GetRandomPrefab(doors)
@@ -137,31 +135,17 @@ public class RoomGenerator : MonoBehaviour
                     Instantiate(prefab, pos, rot, wallsParent);
             }
 
-            localPos = new Vector3(halfX * wallSize.x, heightOffset, 0);
-            pos = transform.TransformPoint(localPos);
-            rot = transform.rotation * Quaternion.Euler(0, 180, 0);
-            GameObject corner = GetRandomPrefab(wallCorners);
-            if (corner != null)
-                Instantiate(corner, pos, rot, wallsParent);
-
-            for (int i = 1; i < halfY; i++)
+            for (int i = 0; i < halfY; i++)
             {
-                localPos = new Vector3(halfX * wallSize.x, heightOffset, -i * wallSize.x);
+                localPos = new Vector3(halfX * wallSize.x, heightOffset, -i * wallSize.x + wallOffset.y);
                 pos = transform.TransformPoint(localPos);
-                rot = transform.rotation * Quaternion.Euler(0, 90, 0);
+                rot = transform.rotation * Quaternion.Euler(0, 90 + 180, 0);
                 GameObject prefab = (doorPos.y != 0 && j == 0 && i == doorPos.y)
                     ? GetRandomPrefab(doors)
                     : GetRandomPrefab(walls);
                 if (prefab != null)
                     Instantiate(prefab, pos, rot, wallsParent);
             }
-
-            localPos = new Vector3(halfX * wallSize.x, heightOffset, -halfY * wallSize.x);
-            pos = transform.TransformPoint(localPos);
-            rot = transform.rotation * Quaternion.Euler(0, -90, 0);
-            GameObject half = GetRandomPrefab(wallHalves);
-            if (half != null)
-                Instantiate(half, pos, rot, wallsParent);
         }
     }
 
