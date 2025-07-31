@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
-    float speed = 25f; // Multiplier for speed
+    public float speed = 25f; // Multiplier for speed
     public float jumpForce = 25f; // Mutliplier for jump
     public Transform groundCheck;
     public float groundDistance = 1f; // Distance to the ground that still allows jumping
