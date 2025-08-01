@@ -8,7 +8,6 @@ public class InGameTime : MonoBehaviour
     public int day = 1;
     public bool debugToggled = false;
 
-    //text
     public TMP_Text daytext;
     public TMP_Text hourtext;
     
@@ -46,5 +45,4 @@ public class InGameTime : MonoBehaviour
         yield return new WaitForSeconds(1);
         OnReset();
     }
-
 }
