@@ -5,12 +5,17 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     public float speed = 25f; // Multiplier for speed
-    public float jumpForce = 25f; // Mutliplier for jump
+    public float jumpForce = 25f; // Multiplier for jump
     public Transform groundCheck;
     public float groundDistance = 1f; // Distance to the ground that still allows jumping
-    public LayerMask groundMask; // Assign that in inpector to the wanted Layer for detecting ground
+    public LayerMask groundMask; // Assign that in inspector to the wanted Layer for detecting ground
     private bool isGrounded;
     public Transform cameraTransform; // Add camera in inspector
+
+    [Header("Movement Settings")]
+    public float maxSpeed = 10f; // Maximum horizontal speed
+    public float friction = 10f; // How quickly the player stops when no input
+    public AnimationCurve accelerationCurve = AnimationCurve.Linear(0, 1, 1, 0); // High at 0 speed, low at max speed
 
     void Start()
     {
@@ -39,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
-
     private void Movement()
     {
         Vector3 moveDirection = Vector3.zero;
@@ -63,10 +67,39 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = 0f;
         moveDirection.Normalize();
 
-        // Apply movement using Rigidbody physics
+        // Get horizontal velocity only (ignore Y component)
+        Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
+        float currentSpeed = horizontalVelocity.magnitude;
+
         if (moveDirection != Vector3.zero)
         {
-            rb.MovePosition(rb.position + moveDirection * speed * Time.fixedDeltaTime);
+            // Calculate speed in the movement direction
+            float speedInMoveDirection = Vector3.Dot(horizontalVelocity, moveDirection);
+            speedInMoveDirection = Mathf.Max(0, speedInMoveDirection); // Only consider forward speed
+            
+            // Calculate force multiplier based on speed in movement direction
+            float forceMultiplier = accelerationCurve.Evaluate(Mathf.Clamp01(speedInMoveDirection / maxSpeed));
+            rb.AddForce(moveDirection * speed * forceMultiplier, ForceMode.Force);
+
+            // Resist perpendicular movement - apply friction to velocity not aligned with moveDirection
+            Vector3 perpVelocity = horizontalVelocity - Vector3.Project(horizontalVelocity, moveDirection);
+            if (perpVelocity.magnitude > 0.1f)
+            {
+                rb.AddForce(-perpVelocity * friction, ForceMode.Force);
+            }
+        }
+        else
+        {
+            // Apply friction to all movement when no input
+            if (currentSpeed > 0.1f)
+            {
+                rb.AddForce(-horizontalVelocity * friction, ForceMode.Force);
+            }
+            else
+            {
+                // Completely stop when speed is very low
+                rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
+            }
         }
     }
 }
