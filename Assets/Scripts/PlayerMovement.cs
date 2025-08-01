@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             // Calculate speed in the movement direction
             float speedInMoveDirection = Vector3.Dot(horizontalVelocity, moveDirection);
             speedInMoveDirection = Mathf.Max(0, speedInMoveDirection); // Only consider forward speed
-            
+
             // Calculate force multiplier based on speed in movement direction
             float forceMultiplier = accelerationCurve.Evaluate(Mathf.Clamp01(speedInMoveDirection / maxSpeed));
             rb.AddForce(moveDirection * speed * forceMultiplier, ForceMode.Force);
@@ -100,6 +100,21 @@ public class PlayerMovement : MonoBehaviour
                 // Completely stop when speed is very low
                 rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("MakeChild"))
+        {
+            transform.SetParent(collision.transform);
+        }
+    }
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("MakeChild"))
+        {
+            transform.SetParent(null);
         }
     }
 }
