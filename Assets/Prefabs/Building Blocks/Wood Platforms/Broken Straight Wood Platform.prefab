@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2945543467021040708}
   - component: {fileID: 2841860869916039969}
   - component: {fileID: 3008912825702721509}
-  - component: {fileID: 5619974392598632162}
+  - component: {fileID: 8974785405755609840}
   m_Layer: 6
   m_Name: Broken Straight Wood Platform
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5619974392598632162
-MeshCollider:
+--- !u!65 &8974785405755609840
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +105,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5853791809707976063, guid: 2787ba29bd35dbc4b98c68894e5bc407, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 6.096573, y: 0.44583535, z: 2.2276835}
+  m_Center: {x: 0.09725559, y: -0.092116155, z: -0.027508676}

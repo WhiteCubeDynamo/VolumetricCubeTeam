@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4854689265939709034}
   - component: {fileID: 307969997047074006}
   - component: {fileID: 1913982090088592390}
-  - component: {fileID: 6452147584099433765}
+  - component: {fileID: 1664168079218971354}
+  - component: {fileID: 4290681524897168759}
   m_Layer: 6
   m_Name: L-Shaped Wood Platform
   m_TagString: Untagged
@@ -87,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6452147584099433765
-MeshCollider:
+--- !u!65 &1664168079218971354
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +106,27 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -9195168029853458371, guid: 2787ba29bd35dbc4b98c68894e5bc407, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 2.1675055, y: 0.4166085, z: 5.523681}
+  m_Center: {x: -1.3864065, y: -0.13185725, z: 0.75346303}
+--- !u!65 &4290681524897168759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997569820564538622}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.061258, y: 0.4166085, z: 2.122176}
+  m_Center: {x: 0.5604701, y: -0.13185725, z: -0.9472903}
