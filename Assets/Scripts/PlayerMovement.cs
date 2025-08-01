@@ -4,25 +4,24 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
-    public float speed = 25f; // Multiplier for speed
-    public float jumpForce = 25f; // Multiplier for jump
-    public Transform groundCheck;
-    public float groundDistance = 1f; // Distance to the ground that still allows jumping
-    public LayerMask groundMask; // Assign that in inspector to the wanted Layer for detecting ground
+    public float speed = 25f; // Multiplier for speed 
+    public float jumpForce = 25f; // Multiplier for jump 
+    public float groundDistance = 1f; // Distance to the ground that still allows jumping 
+    public LayerMask groundMask; // Assign that in inspector to the wanted Layer for detecting ground 
     private bool isGrounded;
-    public Transform cameraTransform; // Add camera in inspector
+    public Transform cameraTransform; // Add camera in inspector 
 
     [Header("Movement Settings")]
-    public float maxSpeed = 10f; // Maximum horizontal speed
-    public float friction = 10f; // How quickly the player stops when no input
-    public AnimationCurve accelerationCurve = AnimationCurve.Linear(0, 1, 1, 0); // High at 0 speed, low at max speed
+    public float maxSpeed = 10f; // Maximum horizontal speed 
+    public float friction = 10f; // How quickly the player stops when no input 
+    public AnimationCurve accelerationCurve = AnimationCurve.Linear(0, 1, 1, 0); // High at 0 speed, low at max speed 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    // Update is called once per frame 
     void Update()
     {
         ProcessingJump();
@@ -30,8 +29,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void ProcessingJump()
     {
-        // Check if player is grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        // Raycast version of ground check 
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDistance + 0.1f, groundMask);
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
         {
@@ -67,21 +66,21 @@ public class PlayerMovement : MonoBehaviour
         moveDirection.y = 0f;
         moveDirection.Normalize();
 
-        // Get horizontal velocity only (ignore Y component)
+        // Get horizontal velocity only (ignore Y component) 
         Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         float currentSpeed = horizontalVelocity.magnitude;
 
         if (moveDirection != Vector3.zero)
         {
-            // Calculate speed in the movement direction
+            // Calculate speed in the movement direction 
             float speedInMoveDirection = Vector3.Dot(horizontalVelocity, moveDirection);
-            speedInMoveDirection = Mathf.Max(0, speedInMoveDirection); // Only consider forward speed
+            speedInMoveDirection = Mathf.Max(0, speedInMoveDirection); // Only consider forward speed 
 
-            // Calculate force multiplier based on speed in movement direction
+            // Calculate force multiplier based on speed in movement direction 
             float forceMultiplier = accelerationCurve.Evaluate(Mathf.Clamp01(speedInMoveDirection / maxSpeed));
             rb.AddForce(moveDirection * speed * forceMultiplier, ForceMode.Force);
 
-            // Resist perpendicular movement - apply friction to velocity not aligned with moveDirection
+            // Resist perpendicular movement - apply friction to velocity not aligned with moveDirection 
             Vector3 perpVelocity = horizontalVelocity - Vector3.Project(horizontalVelocity, moveDirection);
             if (perpVelocity.magnitude > 0.1f)
             {
@@ -90,31 +89,35 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            // Apply friction to all movement when no input
+            // Apply friction to all movement when no input 
             if (currentSpeed > 0.1f)
             {
                 rb.AddForce(-horizontalVelocity * friction, ForceMode.Force);
             }
             else
             {
-                // Completely stop when speed is very low
+                // Completely stop when speed is very low 
                 rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             }
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("MakeChild"))
+        if (collision.gameObject.GetComponent<MovingPlatform>())
         {
             transform.SetParent(collision.transform);
         }
     }
-    void OnCollisionExit(Collision collision)
+
+    private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("MakeChild"))
-        {
-            transform.SetParent(null);
-        }
+        transform.parent = null;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * (groundDistance + 0.1f));
     }
 }
