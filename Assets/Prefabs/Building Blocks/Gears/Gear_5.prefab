@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 4376244853860444363}
   - component: {fileID: 1227280900057888122}
   - component: {fileID: 546366645638649944}
-  m_Layer: 0
+  - component: {fileID: -6678544225255250180}
+  - component: {fileID: 7783097562071551754}
+  m_Layer: 6
   m_Name: Gear_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,3 +110,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5263486, y: 0.19215164, z: 2.5449038}
   m_Center: {x: -0.008435965, y: 0.00000010058284, z: 0.00000047683716}
+--- !u!114 &-6678544225255250180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773127976994739226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7630028f56480ec9eab2da9ec60b83ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 60
+  side: 1
+  spinAxis: {x: 0, y: 1, z: 0}
+--- !u!54 &7783097562071551754
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773127976994739226}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
