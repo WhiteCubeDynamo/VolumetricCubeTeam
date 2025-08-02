@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1463472274285161869}
   - component: {fileID: 8802354470785597215}
   - component: {fileID: 8429724114114212988}
+  - component: {fileID: 5946581576740791115}
+  - component: {fileID: 3431312036955262498}
   m_Layer: 0
   m_Name: 'Cylindrical conection '
   m_TagString: Untagged
@@ -110,3 +112,45 @@ CapsuleCollider:
   m_Height: 2.565478
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &5946581576740791115
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344984405133543770}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &3431312036955262498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344984405133543770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7630028f56480ec9eab2da9ec60b83ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 60
+  side: 1
+  spinAxis: {x: 0, y: 1, z: 0}

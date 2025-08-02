@@ -109,8 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementAxis: 2
   distance: 7.5
-  invertDirection: 1
   speed: 3
+  delayAtEnd: 1
+  invertDirection: 1
 --- !u!65 &7330169064633970682
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -118,7 +119,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5612521099251357941}
-  m_Material: {fileID: 13400000, guid: c53f7154dac176a4ea14a876aed03b7d, type: 2}
+  m_Material: {fileID: 13400000, guid: 0e5a9b91cda54ec3fb77d5fe4ebb6f02, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
