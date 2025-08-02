@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7549603207701741884}
   - component: {fileID: 288126494100411996}
   - component: {fileID: 6276563509261713727}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wooden_planks_Angeld_2.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888921060695594327}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.018198, y: 20.478268, z: -17.335152}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1.6600001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -106,5 +106,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.7541084, y: 0.42794746, z: 0.5761013}
+  m_Size: {x: 6.7541084, y: 0.42794746, z: 0.93}
   m_Center: {x: 0.4437847, y: -0.02460102, z: -0.020758033}

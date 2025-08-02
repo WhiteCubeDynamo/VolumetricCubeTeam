@@ -12,9 +12,7 @@ GameObject:
   - component: {fileID: 2000197568396924702}
   - component: {fileID: 3188007732415446926}
   - component: {fileID: 5013181462815753393}
-  - component: {fileID: -8024998961849580557}
-  - component: {fileID: 3654094615593484940}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Gear_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5584868518016502435}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17.317146, y: 6.9060836, z: -19.680624}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -108,47 +106,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.5090966, y: 0.19083945, z: 2.5275252}
-  m_Center: {x: -0.008355141, y: 0, z: 0.0000009536743}
---- !u!114 &-8024998961849580557
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584868518016502435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7630028f56480ec9eab2da9ec60b83ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 60
-  side: 1
-  spinAxis: {x: 0, y: 1, z: 0}
---- !u!54 &3654094615593484940
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5584868518016502435}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: 2.5090966, y: 0.4, z: 2.5275252}
+  m_Center: {x: -0.008355141, y: -0.13, z: 0.0000009536743}
