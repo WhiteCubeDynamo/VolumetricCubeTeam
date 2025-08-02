@@ -3,6 +3,9 @@ using UnityEngine;
 public class GravityReversal : MonoBehaviour
 {
     [SerializeField] private AudioClip gravityReversalSound;
+    [SerializeField]
+    [Range(0,100)] float volume;
+    [SerializeField] float duration;
     
     public void GravityRevers()
     {
@@ -18,7 +21,7 @@ public class GravityReversal : MonoBehaviour
                 audioSource = gameObject.AddComponent<AudioSource>();
             }
             audioSource.spatialBlend = 0f; // Ensure 2D audio
-            audioSource.PlayOneShot(gravityReversalSound);
+            audioSource.PlayOneShot(gravityReversalSound , volume);
         }
     }
 }

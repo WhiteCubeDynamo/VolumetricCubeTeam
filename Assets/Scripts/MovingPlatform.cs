@@ -5,90 +5,72 @@ using System.Collections;
 public class MovingPlatform : MonoBehaviour
 {
     public enum MovementAxis { X, Y, Z }
-    public MovementAxis movementAxis = MovementAxis.X;
+    public MovementAxis movementAxis = MovementAxis.Y;
+    public bool invertDirection = false;
 
     public float distance = 5f;
     public float speed = 2f;
     public float delayAtEnd = 1f;
-    public bool invertDirection = false;
 
     private Vector3 startPosition;
+    private Vector3 endPosition;
     private Rigidbody rb;
-    private Vector3 moveDirection;
-    private float currentOffset = 0f;
-    private int directionSign = 1;
     private bool isWaiting = false;
+    private bool movingToEnd;
 
     void Start()
     {
-        startPosition = transform.position;
         rb = GetComponent<Rigidbody>();
-
-        // Get local movement direction based on selected axis
-        switch (movementAxis)
-        {
-            case MovementAxis.X: moveDirection = transform.right; break;
-            case MovementAxis.Y: moveDirection = transform.up; break;
-            case MovementAxis.Z: moveDirection = transform.forward; break;
-        }
-
-        if (invertDirection) directionSign = -1;
+        startPosition = transform.position;
+        endPosition = startPosition + GetDirectionVector() * distance;
     }
 
     void FixedUpdate()
     {
         if (isWaiting) return;
 
-        // Move the offset based on direction and speed
-        currentOffset += speed * directionSign * Time.fixedDeltaTime;
+        Vector3 target = movingToEnd ? endPosition : startPosition;
+        Vector3 newPos = Vector3.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
+        rb.MovePosition(newPos);
 
-        // Clamp and reverse when limits are reached
-        if (Mathf.Abs(currentOffset) >= distance / 2f)
+        if (Vector3.Distance(rb.position, target) < 0.01f)
         {
-            currentOffset = Mathf.Clamp(currentOffset, -distance / 2f, distance / 2f);
             StartCoroutine(WaitAndReverseDirection());
         }
-
-        Vector3 targetPosition = startPosition + moveDirection * currentOffset;
-        rb.MovePosition(targetPosition);
     }
 
     private IEnumerator WaitAndReverseDirection()
     {
         isWaiting = true;
         yield return new WaitForSeconds(delayAtEnd);
-        directionSign *= -1;
+        movingToEnd = !movingToEnd;
         isWaiting = false;
     }
+
+    private Vector3 GetDirectionVector()
+    {
+        Vector3 dir = Vector3.zero;
+        switch (movementAxis)
+        {
+            case MovementAxis.X: dir = Vector3.right; break;
+            case MovementAxis.Y: dir = Vector3.up; break;
+            case MovementAxis.Z: dir = Vector3.forward; break;
+        }
+
+        return invertDirection ? -dir : dir;
+    }
+
 #if UNITY_EDITOR
     void OnDrawGizmosSelected()
     {
-        // Choose direction based on selected axis
-        Vector3 dir = Vector3.right;
-        switch (movementAxis)
-        {
-            case MovementAxis.X: dir = transform.right; break;
-            case MovementAxis.Y: dir = transform.up; break;
-            case MovementAxis.Z: dir = transform.forward; break;
-        }
-
-        if (invertDirection)
-            dir *= -1;
-
-        // Calculate endpoints of movement
-        Vector3 center = Application.isPlaying ? startPosition : transform.position;
-        Vector3 from = center - dir.normalized * (distance / 2f);
-        Vector3 to = center + dir.normalized * (distance / 2f);
-
-        // Draw path line
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(from, to);
 
-        // Draw arrow at the center indicating direction
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(center, dir.normalized);
+        Vector3 fixedStart = Application.isPlaying ? startPosition : transform.position;
+        Vector3 fixedEnd = fixedStart + GetDirectionVector() * distance;
+
+        Gizmos.DrawLine(fixedStart, fixedEnd);
+        Gizmos.DrawSphere(fixedStart, 0.1f);
+        Gizmos.DrawSphere(fixedEnd, 0.1f);
     }
 #endif
-
 }
-
