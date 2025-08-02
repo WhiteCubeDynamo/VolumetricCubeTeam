@@ -15,10 +15,11 @@ public class PlayerMovement : MonoBehaviour
     public float maxSpeed = 10f; // Maximum horizontal speed 
     public float friction = 10f; // How quickly the player stops when no input 
     public AnimationCurve accelerationCurve = AnimationCurve.Linear(0, 1, 1, 0); // High at 0 speed, low at max speed 
-
+    [SerializeField] float gravity;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        Physics.gravity = gravity * Physics.gravity;
     }
 
     // Update is called once per frame 
@@ -30,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private void ProcessingJump()
     {
         // Raycast version of ground check 
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, groundDistance + 0.1f, groundMask);
+        isGrounded = Physics.SphereCast(transform.position, 0.2f, Vector3.down, out RaycastHit hit,groundDistance + 0.1f,groundMask);
+
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
         {
@@ -117,7 +119,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * (groundDistance + 0.1f));
+        float radius = 0.2f;
+        float maxDist = groundDistance + 0.1f;
+        Vector3 origin = transform.position;
+        Vector3 end = origin + Vector3.down * maxDist;
+
+        // Draw the spherecast as two wire spheres and a line
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(origin, radius);
+        Gizmos.DrawWireSphere(end, radius);
+        Gizmos.DrawLine(origin, end);
+
+        // If grounded, show hit point & normal
+        bool grounded = Physics.SphereCast(origin, radius, Vector3.down, out RaycastHit hit, maxDist, groundMask);
+        if (grounded)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(hit.point, 0.1f);
+            Gizmos.DrawLine(hit.point, hit.point + hit.normal * 0.5f);
+        }
     }
 }

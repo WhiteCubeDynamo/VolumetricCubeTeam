@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9155516287569273560}
   - component: {fileID: 1862060701774616216}
   - component: {fileID: 4582271217601204780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wooden_planks_Angeld_2.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}

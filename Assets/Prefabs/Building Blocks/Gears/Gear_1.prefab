@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7310228426536410375}
   - component: {fileID: 4168333595320813243}
   - component: {fileID: 744173096672289621}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gear_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3134868565784223033}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.05, y: 6.91, z: -19.756865}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -106,5 +106,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.5263486, y: 0.19215164, z: 2.5449038}
-  m_Center: {x: -0.008431196, y: 0, z: 0}
+  m_Size: {x: 2.5263486, y: 0.4, z: 2.5449038}
+  m_Center: {x: -0.008431196, y: -0.13, z: 0}

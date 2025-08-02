@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 4537405894722059247}
   - component: {fileID: 8973412842302062325}
   - component: {fileID: 2561498869786558443}
+  - component: {fileID: 7547171291400313163}
+  - component: {fileID: 7007306894887651240}
   m_Layer: 6
   m_Name: Broken L-Shaped Wood Platform
   m_TagString: Untagged
@@ -107,8 +109,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.9643464, y: 0.4166085, z: 2.2284775}
-  m_Center: {x: 1.2310963, y: -0.115922034, z: -1.258147}
+  m_Size: {x: 3.8911994, y: 0.4166085, z: 2.2284775}
+  m_Center: {x: 0.19452226, y: -0.115922034, z: -1.258147}
 --- !u!65 &2561498869786558443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -130,3 +132,45 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0069418, y: 0.4166085, z: 5.445994}
   m_Center: {x: -0.74760634, y: -0.115922034, z: 0.4105816}
+--- !u!65 &7547171291400313163
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035144138891016706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.9643464, y: 0.4166085, z: 0.5245079}
+  m_Center: {x: 1.2310963, y: -0.115922034, z: -2.110132}
+--- !u!65 &7007306894887651240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6035144138891016706}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.9643464, y: 0.4166085, z: 0.41299802}
+  m_Center: {x: 1.2310963, y: -0.115922034, z: -0.61234915}
