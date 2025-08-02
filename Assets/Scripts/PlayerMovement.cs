@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private void ProcessingJump()
     {
         // Raycast version of ground check 
-        isGrounded = Physics.SphereCast(transform.position, 0.2f, Vector3.down, out RaycastHit hit,groundDistance + 0.1f,groundMask);
+        isGrounded = Physics.SphereCast(transform.position, 0.5f, Vector3.down, out RaycastHit hit,groundDistance + 0.1f,groundMask);
 
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
