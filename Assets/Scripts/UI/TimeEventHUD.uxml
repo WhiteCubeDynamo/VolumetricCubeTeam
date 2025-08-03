@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <ui:VisualElement name="hud-container" style="position: absolute; top: 10px; right: 10px; background-color: rgba(0, 0, 0, 0.5); padding: 10px; border-radius: 8px;">
+        <ui:Label name="time-event-label" text="Current Time Event: " style="font-size: 16px; color: rgb(255, 255, 255);" />
+        <ui:Label name="event-name" text="No event" style="font-size: 14px; color: rgb(255, 215, 0); font-weight: bold;" />
+    </ui:VisualElement>
+</ui:UXML>
+

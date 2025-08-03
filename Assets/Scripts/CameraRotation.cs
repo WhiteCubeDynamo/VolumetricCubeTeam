@@ -4,8 +4,17 @@ using UnityEngine.InputSystem;
 public class CameraRotation : MonoBehaviour
 {
     [Header("Look Settings")]
-    [Tooltip("Mouse sensitivity multiplier")]
-    public float sensitivity = 20f;
+    [Tooltip("Base mouse sensitivity multiplier")]
+    public float baseSensitivity = 20f;
+
+    [Tooltip("Minimum sensitivity value")]
+    public float minSensitivity = 5f;
+
+    [Tooltip("Maximum sensitivity value")]
+    public float maxSensitivity = 50f;
+
+    [Tooltip("Scroll wheel sensitivity adjustment speed")]
+    public float scrollSensitivity = 2f;
 
     [Tooltip("Minimum vertical angle (looking down) in degrees")]
     public float minPitch = -80f;
@@ -16,6 +25,9 @@ public class CameraRotation : MonoBehaviour
     [Tooltip("Invert Y axis")]
     public bool invertY = false;
 
+    // Current sensitivity (modified by scroll wheel)
+    private float currentSensitivity;
+
     // internal state
     private float yaw;   // horizontal rotation
     private float pitch; // vertical rotation
@@ -24,19 +36,28 @@ public class CameraRotation : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        currentSensitivity = baseSensitivity;
     }
 
     void Update()
     {
+        AdjustSensitivity();
         LookAround();
+    }
+
+    private void AdjustSensitivity()
+    {
+        float scrollValue = Mouse.current.scroll.y.ReadValue();
+        currentSensitivity += scrollValue * scrollSensitivity * Time.deltaTime;
+        currentSensitivity = Mathf.Clamp(currentSensitivity, minSensitivity, maxSensitivity);
     }
 
     private void LookAround()
     {
         Vector2 mouseDelta = Mouse.current.delta.ReadValue();
 
-        float deltaX = mouseDelta.x * sensitivity * Time.deltaTime;
-        float deltaY = mouseDelta.y * sensitivity * Time.deltaTime * (invertY ? 1f : -1f);
+        float deltaX = mouseDelta.x * currentSensitivity * Time.deltaTime;
+        float deltaY = mouseDelta.y * currentSensitivity * Time.deltaTime * (invertY ? 1f : -1f);
 
         yaw += deltaX;
         pitch += deltaY;

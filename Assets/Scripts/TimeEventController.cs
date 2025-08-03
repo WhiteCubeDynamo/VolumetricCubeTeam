@@ -4,9 +4,9 @@ using System.Collections;
 
 public class TimedEventInvoker : MonoBehaviour
 {
-    [SerializeField] private UnityEvent[] timeEvent;
-    [SerializeField] private float duration = 1f;
-    [SerializeField] private bool loop = true;
+    public UnityEvent[] timeEvent;
+    public float duration = 1f;
+    public bool loop = true;
     private Coroutine runningCoroutine;
 
     private void Start()

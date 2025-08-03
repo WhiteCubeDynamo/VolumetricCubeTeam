@@ -1,9 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(FootstepSoundMaterial))]
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody rb;
+Rigidbody rb;
+FootstepSoundMaterial footstepSound;
     public float speed = 25f; // Multiplier for speed 
     public float jumpForce = 25f; // Multiplier for jump 
     public float groundDistance = 1f; // Distance to the ground that still allows jumping 
@@ -19,7 +21,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Physics.gravity = gravity * Physics.gravity;
+Physics.gravity = gravity * Physics.gravity;
+        footstepSound = GetComponent<FootstepSoundMaterial>();
     }
 
     // Update is called once per frame 
@@ -42,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
+Movement();
+        UpdateFootstepState();
     }
 
     private void Movement()
@@ -102,6 +106,13 @@ public class PlayerMovement : MonoBehaviour
                 rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
             }
         }
+}
+
+    private void UpdateFootstepState()
+    {
+        Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+        bool isMoving = horizontalVelocity.magnitude > 0.1f;
+        footstepSound.UpdateMovementState(isMoving, isGrounded, horizontalVelocity.magnitude);
     }
 
     private void OnCollisionEnter(Collision collision)
