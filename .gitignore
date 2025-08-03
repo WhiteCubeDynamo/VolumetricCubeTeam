@@ -96,3 +96,5 @@ Assets/App/Data/MoneyData.json
 *.blend1
 *.swp
 *.bak
+
+.fuse_hidden*

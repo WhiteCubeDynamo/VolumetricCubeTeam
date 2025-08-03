@@ -1,0 +1,34 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/Dialogue/Examples/UI/MysticalThemeUI.uss?fileID=7433441132597879392&amp;guid=e08bfd8bbd966c87e8a01d11510392ef&amp;type=3#MysticalThemeUI" />
+    <ui:VisualElement name="dialogue-root" class="dialogue-container" style="display: none; position: absolute; left: 0; top: 0; right: 0; bottom: 0; justify-content: flex-end; align-items: stretch; background-color: rgba(0, 0, 0, 0); padding-left: 20px; padding-right: 20px; padding-top: 20px; padding-bottom: 20px;">
+        <ui:VisualElement class="dialogue-panel" style="background-color: rgba(0, 0, 0, 0.9); border-radius: 15px; padding-left: 25px; padding-right: 25px; padding-top: 20px; padding-bottom: 20px; max-height: 300px;">
+            <ui:VisualElement class="character-info" style="flex-direction: row; margin-bottom: 15px; align-items: center;">
+                <ui:VisualElement name="character-portrait-container" class="portrait-container" style="width: 80px; height: 80px; margin-right: 15px; background-color: rgba(255, 255, 255, 0.1); border-radius: 10px; align-items: center; justify-content: center;">
+                    <ui:VisualElement name="character-portrait" class="portrait" style="width: 70px; height: 70px; background-color: rgba(255, 255, 255, 0.2); border-radius: 8px;" />
+                </ui:VisualElement>
+                <ui:VisualElement class="speaker-info" style="flex-grow: 1;">
+                    <ui:VisualElement style="flex-direction: row; align-items: center; margin-bottom: 5px;">
+                        <ui:Label name="speaker-name" text="Speaker Name" class="speaker" style="font-size: 20px; color: rgb(255, 215, 0); font-weight: bold; margin-right: 10px;" />
+                        <ui:Label name="mood-icon" text="😊" class="mood" style="font-size: 18px;" />
+                    </ui:VisualElement>
+                    <ui:Label name="animation-status" text="idle" class="animation-status" style="font-size: 12px; color: rgba(255, 255, 255, 0.7); font-style: italic;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="dialogue-content-area" class="content-area" style="flex-grow: 1; margin-bottom: 15px;">
+                <ui:ScrollView name="dialogue-scroll" style="max-height: 120px;">
+                    <ui:Label name="dialogue-text" text="Dialogue text will appear here..." class="dialogue-text" style="font-size: 16px; color: rgb(255, 255, 255); margin-bottom: 10px;" />
+                </ui:ScrollView>
+            </ui:VisualElement>
+            <ui:VisualElement name="dialogue-choices-container" class="choices-container" style="display: none; margin-bottom: 15px;">
+                <ui:Label text="Choose your response:" class="choices-prompt" style="font-size: 14px; color: rgb(255, 215, 0); margin-bottom: 10px; font-weight: bold;" />
+                <ui:VisualElement name="choices-list" class="choices-list" style="flex-direction: column;">
+                    <ui:Button name="fire-choice" text="🔥 Fire Choice" class="fire-button" />
+                    <ui:Button name="wood-choice" text="🌳 Wood Choice" class="wood-button" />
+                    <ui:Button name="stone-choice" text="🪨 Stone Choice" class="stone-button" />
+                    <ui:Button name="gold-choice" text="✨ Gold Choice" class="gold-button" />
+                    <ui:Button name="mystic-choice" text="🔮 Mystic Choice" class="mystic-button" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

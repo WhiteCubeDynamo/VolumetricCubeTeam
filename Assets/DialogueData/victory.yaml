@@ -1,0 +1,28 @@
+title: "Victory"
+lines:
+  - id: "start"
+    speaker: "Narrator"
+    text: "You approach the final chamber, the crystal pulsing with energy in your hands."
+    
+  - speaker: "Narrator"
+    text: "As you step into the sacred space, the crystal begins to levitate, casting rainbow light across ancient walls."
+    
+  - speaker: "Mysterious Voice"
+    text: "Well done, seeker. You have proven yourself worthy of the Tower's greatest treasure."
+    
+  - speaker: "Mysterious Voice"
+    text: "The Chrono Crystal is yours. With it, you command time itself."
+    
+  - speaker: "Player"
+    text: "The power... I can feel it flowing through me. Past, present, and future are all within my grasp."
+    
+  - speaker: "Narrator"
+    text: "The tower begins to shimmer and fade around you as reality bends to your newfound mastery."
+    
+  - speaker: "System"
+    text: "Congratulations! You have successfully completed the Tower of Time heist!"
+    trigger: "win_trigger"
+    
+  - id: "victory_complete"
+    speaker: "System"
+    text: "Thank you for playing! Your mastery of time and space is now absolute."

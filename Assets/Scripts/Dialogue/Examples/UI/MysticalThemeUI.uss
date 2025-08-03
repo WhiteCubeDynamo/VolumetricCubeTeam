@@ -1,0 +1,66 @@
+/* Mystical Theme Styles */
+
+/* Fire Theme */
+.fire-button {
+    background-color: rgba(255, 69, 0, 0.8); /* Fire Orange */
+    color: rgb(255, 255, 255); /* White text */
+    transition-property: background-color, transform;
+    transition-duration: 200ms;
+}
+
+.fire-button:hover {
+    background-color: rgba(255, 99, 71, 1);
+    transform: scale(1.05);
+}
+
+/* Wood Theme */
+.wood-button {
+    background-color: rgba(139, 69, 19, 0.8); /* SaddleBrown */
+    color: rgb(245, 222, 179); /* Wheat text */
+    transition-property: background-color, transform;
+    transition-duration: 200ms;
+}
+
+.wood-button:hover {
+    background-color: rgba(160, 82, 45, 1);
+    transform: scale(1.05);
+}
+
+/* Stone Theme */
+.stone-button {
+    background-color: rgba(112, 128, 144, 0.8); /* SlateGray */
+    color: rgb(220, 220, 220); /* Gainsboro text */
+    transition-property: background-color, transform;
+    transition-duration: 200ms;
+}
+
+.stone-button:hover {
+    background-color: rgba(119, 136, 153, 1);
+    transform: scale(1.05);
+}
+
+/* Gold Theme */
+.gold-button {
+    background-color: rgba(255, 215, 0, 0.8); /* Gold */
+    color: rgb(0, 0, 0); /* Black text */
+    transition-property: background-color, transform;
+    transition-duration: 200ms;
+}
+
+.gold-button:hover {
+    background-color: rgba(255, 223, 0, 1);
+    transform: scale(1.05);
+}
+
+/* Mystic Theme */
+.mystic-button {
+    background-color: rgba(75, 0, 130, 0.8); /* Indigo */
+    color: rgb(230, 230, 250); /* Lavender text */
+    transition-property: background-color, transform;
+    transition-duration: 200ms;
+}
+
+.mystic-button:hover {
+    background-color: rgba(138, 43, 226, 1); /* BlueViolet */
+    transform: scale(1.05);
+}

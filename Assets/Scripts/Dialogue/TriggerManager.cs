@@ -36,6 +36,10 @@ public class TriggerManager : MonoBehaviour
     // private int currentLevel = 1;
     // private bool isInCombat = false;
     
+    public GameObject CrystalBoxTrigger;
+    public GameObject Crystal;
+    public GameObject WinTrigger;
+
     private void Awake() 
     {
         if (Instance == null)
@@ -96,7 +100,17 @@ public class TriggerManager : MonoBehaviour
             //     break;
             // case "unlock_ability":
             //     UnlockPlayerAbility(line.ability_name);
-            //     break;
+      //     break;
+
+            case "key_collected":
+                OnKeyCollected();
+                break;
+            case "crystal_box_opened":
+                OnCrystalBoxOpened();
+                break;
+            case "win_trigger":
+                OnWinTrigger();
+                break;
                 
             default:
                 Debug.LogWarning($"Unknown trigger: {triggerName}");
@@ -104,7 +118,35 @@ public class TriggerManager : MonoBehaviour
         }
     }
     
-    #region Your Game Logic Methods
+#region Your Game Logic Methods
+
+    private bool keyCollected = false;
+    private bool crystalBoxOpened = false;
+
+    private void OnKeyCollected()
+    {
+        Debug.Log("Key collected!");
+        keyCollected = true;
+        // Additional logic here
+        CrystalBoxTrigger.SetActive(true);
+        Destroy(Crystal);
+    }
+
+    private void OnCrystalBoxOpened()
+    {
+        if (!keyCollected) return;
+        Debug.Log("Crystal box opened!");
+        crystalBoxOpened = true;
+        // Additional logic here
+        WinTrigger.SetActive(true);
+    }
+
+    private void OnWinTrigger()
+    {
+        if (!crystalBoxOpened) return;
+        Debug.Log("Congratulations, you've won!");
+        // Additional logic to end the game
+    }
     
     // GUIDE: Add your triggered methods here
     // Example:

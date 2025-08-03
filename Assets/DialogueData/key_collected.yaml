@@ -1,0 +1,15 @@
+title: "Key Collection"
+lines:
+  - id: "start"
+    speaker: "Narrator"
+    text: "You've found an ancient golden key! It feels warm to the touch and pulses with mysterious energy."
+    
+  - speaker: "Player"
+    text: "This must be important... I can sense its power from here."
+    
+  - speaker: "Narrator"
+    text: "The key seems to resonate with something nearby. Perhaps it will unlock a hidden chamber?"
+    
+  - speaker: "System"
+    text: "Key acquired! Look for a crystal box that this key might unlock."
+    trigger: "key_collected"

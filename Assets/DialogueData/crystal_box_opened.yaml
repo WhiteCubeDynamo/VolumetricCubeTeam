@@ -1,0 +1,21 @@
+title: "Crystal Box Opening"
+lines:
+  - id: "start"
+    speaker: "Narrator"
+    text: "The golden key fits perfectly into the crystal box's intricate lock."
+    
+  - speaker: "Narrator"
+    text: "As you turn the key, the box begins to glow with an ethereal light."
+    
+  - speaker: "Narrator"
+    text: "The lid slowly opens, revealing a magnificent crystal that seems to contain swirling galaxies within."
+    
+  - speaker: "Player"
+    text: "Incredible! This crystal... it's like holding a piece of the universe itself."
+    
+  - speaker: "Narrator"
+    text: "You carefully remove the crystal from its resting place. The box closes and crumbles to dust."
+    
+  - speaker: "System"
+    text: "Crystal obtained! The final chamber should now be accessible."
+    trigger: "crystal_box_opened"

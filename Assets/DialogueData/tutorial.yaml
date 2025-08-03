@@ -1,0 +1,70 @@
+title: "Tutorial - Tower of Time Heist"
+lines:
+  - id: "start"
+    speaker: "Mysterious Voice"
+    text: "Welcome, time thief. You stand before the Tower of Time, where ancient treasures await those brave enough to seize them."
+    
+  - speaker: "Mysterious Voice"
+    text: "But first, you must master the arts of movement and time manipulation."
+    
+  - speaker: "Tutorial"
+    text: "Use W, A, S, D keys to move around. Try walking forward to the tower entrance."
+    trigger: "enable_movement"
+    
+  - speaker: "Tutorial"
+    text: "Good! You can also move backwards with S, strafe left with A, and strafe right with D."
+    
+  - speaker: "Tutorial"
+    text: "Move your mouse to look around. Notice how you can look up at the towering structure above."
+    
+  - speaker: "Tutorial"
+    text: "You can adjust your mouse sensitivity by scrolling the mouse wheel. Try it now."
+    
+  - speaker: "Mysterious Voice"
+    text: "The tower's defenses include moving platforms and temporal anomalies. You'll need to be agile."
+    
+  - speaker: "Tutorial"
+    text: "Press SPACE to jump. You'll need this to reach higher platforms and cross gaps."
+    trigger: "show_jump_platform"
+    
+  - speaker: "Tutorial"
+    text: "Practice jumping onto that flying platform ahead."
+    
+  - speaker: "Mysterious Voice"
+    text: "Excellent! But raw agility alone won't be enough. The tower's greatest defense is time itself."
+    
+  - speaker: "Mysterious Voice"
+    text: "Anomalies have pros and cons, just like everything, so can be used."
+    
+  - speaker: "Tutorial"
+    text: "Look for shimmering temporal rifts - they recharge your time manipulation abilities."
+    
+  - speaker: "Mysterious Voice"
+    text: "The tower has five floors, each guarded by temporal puzzles and traps."
+    
+  - speaker: "Mysterious Voice"
+    text: "Ancient mechanisms respond to those who can do what needed. Platforms that seem impossible to reach..."
+    
+  - speaker: "Mysterious Voice"
+    text: "...become accessible when gravity reverse."
+    
+  - speaker: "Tutorial"
+    text: "Remember: Moving platforms will freeze in place, but you can still move freely."
+    
+  - speaker: "Mysterious Voice"
+    text: "At the tower's peak lies the Chrono Crystal - a treasure that grants its wielder dominion over time."
+    
+  - speaker: "Mysterious Voice"
+    text: "But beware - the tower's guardians grow stronger as you ascend."
+    
+  - speaker: "Mysterious Voice"
+    text: "Now go, time thief. The tower awaits, and dawn approaches. You have one day before the temporal seal reactivates."
+    
+  - speaker: "Tutorial"
+    text: "Good luck! Remember - W,A,S,D to move, SPACE to jump, and master the flow of time itself!"
+    trigger: "start_timer"
+    
+  - id: "tutorial_complete"
+    speaker: "System"
+    text: "Tutorial Complete. The Tower of Time awaits your infiltration."
+    trigger: "tutorial_finished"
