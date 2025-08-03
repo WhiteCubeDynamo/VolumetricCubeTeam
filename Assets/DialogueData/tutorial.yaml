@@ -66,5 +66,5 @@ lines:
     
   - id: "tutorial_complete"
     speaker: "System"
-    text: "Tutorial Complete. The Tower of Time awaits your infiltration."
+    text: "Tutorial Complete. The Tower of Time awaits your infiltration. Go find key higher."
     trigger: "tutorial_finished"
