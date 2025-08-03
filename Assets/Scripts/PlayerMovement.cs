@@ -1,8 +1,10 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public EndScreenMessage endScreenMessage;
     Rigidbody rb;
     public float speed = 25f; // Multiplier for speed 
     public float jumpForce = 25f; // Multiplier for jump 
@@ -31,11 +33,12 @@ public class PlayerMovement : MonoBehaviour
     private void ProcessingJump()
     {
         // Raycast version of ground check 
-        isGrounded = Physics.SphereCast(transform.position, 0.5f, Vector3.down, out RaycastHit hit,groundDistance + 0.1f,groundMask);
+        isGrounded = Physics.SphereCast(transform.position, 0.5f, Vector3.down, out RaycastHit hit, groundDistance + 0.1f, groundMask);
 
 
         if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
         {
+            endScreenMessage.Activate();
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         }
     }
