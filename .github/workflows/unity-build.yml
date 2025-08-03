@@ -3,7 +3,7 @@ name: Unity Multi-Platform Build CI
 on: [push]
 
 env:
-  UNITY_PROJECT_NAME: "Jam Game"  # Change this to your project name
+  UNITY_PROJECT_NAME: "ThiefInHourglass"  # Change this to your project name
   BUILD_VERSION: "1"               # Set your version
 
 jobs:
